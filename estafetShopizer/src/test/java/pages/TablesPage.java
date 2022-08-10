@@ -12,9 +12,7 @@ public class TablesPage extends BasePage {
     private static final String CART_URL = "http://localhost/cart";
     By cookies = By.xpath("//*[@id=\"rcc-confirm-button\"]");
     By listView = By.className("fa-list-ul");
-    By addToCart = By.xpath("//*[@id=\"root\"]/div[3]/div/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div/div[3]/div/button");
-    // By.xpath("//button[1][text()='Add to cart']");
-    //By.xpath("//*[@id=\"root\"]/div[3]/div/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div/div[3]/div/button");
+    By addToCart = By.xpath("//p[.='Olive Table']//../div/div/button");
     By productValue = By.className("cart-plus-minus-box");
     By increaseQntButton = By.xpath("//button[text()='+']");
     By totalAmount = By.className("product-subtotal");
@@ -40,11 +38,10 @@ public class TablesPage extends BasePage {
     }
 
     /**
-     * Add to cart
+     * Add table to cart
      */
     public void setAddToCart() {
         waitElementBeClickable(addToCart).click();
-        //remoteWebDriver.findElement(addToCart).click();
     }
 
     /**

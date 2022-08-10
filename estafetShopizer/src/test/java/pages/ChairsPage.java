@@ -1,7 +1,5 @@
 package pages;
-
 import org.openqa.selenium.By;
-
 import java.net.MalformedURLException;
 
 /**
@@ -10,16 +8,9 @@ import java.net.MalformedURLException;
 public class ChairsPage extends BasePage {
     private static final String LOGIN_CHAIRS_URL = "http://localhost/category/chairs";
     private static final String CART_URL = "http://localhost/cart";
-
+    By cookies = By.xpath("//*[@id=\"rcc-confirm-button\"]");
     By listView = By.className("fa-list-ul");
-    By addToCart = By.xpath("//*[@id=\"root\"]/div[4]/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/button");
-    //By.tagName("p");
-    //*[@id="root"]/div[4]/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div/p
-    // By.xpath("//div/div[1]/div[2]/div[@class='row']//div[@class='shop-list-content']//button[@title='Add to cart']");
-    //By.cssSelector("div:nth-of-type(1) > .mb-30.shop-list-wrap > .row > .col-md-7.col-sm-6.col-xl-8 > .shop-list-content > .align-items-center.d-flex.shop-list-actions > .shop-list-btn > button[title='Add to cart']");
-    //By.xpath("//button[@title= 'Add to cart']");
-    //;
-    //div[3][@class= 'shop-list-actions']
+    By addToCart = By.xpath("//p[.='Chair from Thailand']//../div/div/button");
     By productValue = By.className("cart-plus-minus-box");
     By increaseQntBtn = By.xpath("//button[text()='+']");
     By totalAmount = By.className("product-subtotal");
@@ -28,12 +19,13 @@ public class ChairsPage extends BasePage {
     }
 
     /**
-     * Navigate to  ChairsPage
+     * Navigate to ChairsPage
      */
     @Override
     public void navigateToPage() {
         remoteWebDriver.get(LOGIN_CHAIRS_URL);
         remoteWebDriver.manage().window().maximize();
+        remoteWebDriver.findElement(cookies).click();
     }
 
     /**
@@ -44,10 +36,10 @@ public class ChairsPage extends BasePage {
     }
 
     /**
-     * Add to cart
+     * Add chair to cart
      */
     public void setAddToCart() {
-                waitElementBeClickable(addToCart).click();
+     waitElementBeClickable(addToCart).click();
     }
 
     /**

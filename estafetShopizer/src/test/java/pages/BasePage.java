@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,9 +18,11 @@ public abstract class BasePage {
     public RemoteWebDriver remoteWebDriver;
     public WebDriverWait wait;
 
+    public JavascriptExecutor js = (JavascriptExecutor) remoteWebDriver;
+
     /**
      * Constructor
-     * Create instance of RemoteWebDriver and Wait
+     * Create instance of RemoteWebDriver and Explicit Wait
      */
     public BasePage() throws MalformedURLException {
         this.remoteWebDriver = Hooks.remoteWebDriver;
